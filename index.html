@@ -6,15 +6,15 @@
   <title>Acabados Lozano MA SAS</title>
   <style>
     :root {
-      --negro:       #0a0a0a;
-      --negro-medio: #141414;
-      --negro-card:  #1a1a1a;
-      --dorado:      #c9a84c;
-      --dorado-claro:#e4c06e;
+      --dorado:       #c9a84c;
+      --dorado-claro: #e4c06e;
       --dorado-oscuro:#9a7a30;
-      --blanco:      #ffffff;
-      --gris:        #888888;
-      --gris-claro:  #f0f0f0;
+      --bg-main:      #f7f7f7;
+      --bg-white:     #ffffff;
+      --bg-card:      #ffffff;
+      --texto:        #1a1a1a;
+      --texto-sec:    #666666;
+      --gris-claro:   #f0f0f0;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -22,13 +22,13 @@
 
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: var(--negro);
-      color: var(--blanco);
+      background: var(--bg-main);
+      color: var(--texto);
     }
 
     /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--negro); }
+    ::-webkit-scrollbar-track { background: var(--gris-claro); }
     ::-webkit-scrollbar-thumb { background: var(--dorado-oscuro); border-radius: 3px; }
 
     /* ══════════════════════════════════════
@@ -37,7 +37,7 @@
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: rgba(10,10,10,0.95);
+      background: rgba(255,255,255,0.97);
       backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
@@ -45,25 +45,23 @@
       padding: 0 50px;
       height: 75px;
       z-index: 1000;
-      border-bottom: 1px solid rgba(201,168,76,0.2);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
 
     .nav-logo img { height: 54px; width: auto; }
 
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
-      color: rgba(255,255,255,0.7);
+      color: rgba(30,30,30,0.65);
       text-decoration: none;
       font-size: 0.88rem;
       letter-spacing: 1px;
       text-transform: uppercase;
-      font-weight: 500;
+      font-weight: 600;
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--dorado); }
-
-    .hero-logo-box { margin: 0 auto 36px; }
-    .hero-logo-box img { width: 230px; height: auto; }
 
     /* ══════════════════════════════════════
        HERO
@@ -77,16 +75,15 @@
       padding: 120px 20px 80px;
       position: relative;
       overflow: hidden;
-      background: var(--negro);
+      background: var(--bg-main);
     }
 
-    /* fondo decorativo */
     #inicio::before {
       content: '';
       position: absolute;
       top: -200px; right: -200px;
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, transparent 70%);
       pointer-events: none;
     }
     #inicio::after {
@@ -94,43 +91,44 @@
       position: absolute;
       bottom: -150px; left: -150px;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
       pointer-events: none;
     }
 
     .hero-inner { position: relative; max-width: 860px; }
 
-    /* Logo hero */
     .hero-logo-box {
       margin: 0 auto 28px;
       display: flex; align-items: center; justify-content: center;
     }
+    .hero-logo-box img { width: 230px; height: auto; }
 
     .hero-badge {
       display: inline-block;
       border: 1px solid rgba(201,168,76,0.5);
-      color: var(--dorado);
+      color: var(--dorado-oscuro);
       padding: 6px 20px;
       border-radius: 30px;
       font-size: 0.78rem;
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 28px;
-      background: rgba(201,168,76,0.06);
+      background: rgba(201,168,76,0.08);
+      font-weight: 600;
     }
 
     .hero-inner h1 {
       font-size: clamp(2rem, 5vw, 4rem);
       font-weight: 900;
       line-height: 1.12;
-      color: var(--blanco);
+      color: var(--texto);
       margin-bottom: 10px;
     }
     .hero-inner h1 .gold { color: var(--dorado); }
 
     .hero-tagline {
       font-size: 1.1rem;
-      color: var(--dorado-claro);
+      color: var(--dorado);
       font-style: italic;
       margin-bottom: 18px;
       opacity: 0.9;
@@ -138,7 +136,7 @@
 
     .hero-inner p {
       font-size: 1.05rem;
-      color: var(--gris);
+      color: var(--texto-sec);
       max-width: 580px;
       margin: 0 auto 42px;
       line-height: 1.8;
@@ -148,7 +146,7 @@
 
     .btn-gold {
       background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
-      color: var(--negro);
+      color: #fff;
       padding: 15px 36px;
       border-radius: 6px;
       text-decoration: none;
@@ -156,12 +154,13 @@
       font-size: 0.95rem;
       letter-spacing: 0.5px;
       transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 14px rgba(201,168,76,0.35);
     }
     .btn-gold:hover { opacity: 0.88; transform: translateY(-2px); }
 
     .btn-outline {
       background: transparent;
-      color: var(--dorado);
+      color: var(--dorado-oscuro);
       padding: 15px 36px;
       border-radius: 6px;
       text-decoration: none;
@@ -184,7 +183,7 @@
       font-weight: 900;
       color: var(--dorado);
     }
-    .stat .lbl { font-size: 0.82rem; color: var(--gris); margin-top: 4px; letter-spacing: 0.5px; }
+    .stat .lbl { font-size: 0.82rem; color: var(--texto-sec); margin-top: 4px; letter-spacing: 0.5px; }
 
     /* ══════════════════════════════════════
        SECTION HELPERS
@@ -193,7 +192,7 @@
 
     .s-tag {
       display: inline-block;
-      color: var(--dorado);
+      color: var(--dorado-oscuro);
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 3px;
@@ -203,13 +202,13 @@
     .s-title {
       font-size: clamp(1.8rem, 3vw, 2.8rem);
       font-weight: 900;
-      color: var(--blanco);
+      color: var(--texto);
       margin-bottom: 16px;
       line-height: 1.15;
     }
     .s-sub {
       font-size: 1rem;
-      color: var(--gris);
+      color: var(--texto-sec);
       max-width: 560px;
       line-height: 1.8;
       margin-bottom: 56px;
@@ -225,9 +224,9 @@
     .center .gold-line { margin-left: auto; margin-right: auto; background: linear-gradient(90deg, transparent, var(--dorado), transparent); }
 
     /* ══════════════════════════════════════
-       MATERIALES / SERVICIOS
+       SERVICIOS
     ══════════════════════════════════════ */
-    #servicios { background: var(--negro-medio); }
+    #servicios { background: var(--bg-white); }
 
     .servicios-grid {
       display: grid;
@@ -238,13 +237,14 @@
     }
 
     .serv-card {
-      background: var(--negro-card);
-      border: 1px solid rgba(201,168,76,0.15);
+      background: var(--bg-card);
+      border: 1px solid rgba(201,168,76,0.2);
       border-radius: 14px;
       padding: 36px 28px;
-      transition: border-color 0.3s, transform 0.25s;
+      transition: border-color 0.3s, transform 0.25s, box-shadow 0.3s;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     }
     .serv-card::before {
       content: '';
@@ -255,8 +255,9 @@
       transform: scaleX(0);
       transition: transform 0.3s;
     }
-    .serv-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-6px); }
+    .serv-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-6px); box-shadow: 0 8px 28px rgba(201,168,76,0.15); }
     .serv-card:hover::before { transform: scaleX(1); }
+    .serv-card.clickable { cursor: pointer; }
 
     .serv-icon {
       font-size: 2.2rem;
@@ -266,15 +267,23 @@
     .serv-card h3 {
       font-size: 1.15rem;
       font-weight: 800;
-      color: var(--dorado);
+      color: var(--dorado-oscuro);
       margin-bottom: 10px;
     }
-    .serv-card p { font-size: 0.92rem; color: var(--gris); line-height: 1.7; }
+    .serv-card p { font-size: 0.92rem; color: var(--texto-sec); line-height: 1.7; }
+
+    .serv-hint {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: var(--dorado);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
 
     /* ══════════════════════════════════════
-       MATERIALES PREMIUM (chips)
+       MATERIALES
     ══════════════════════════════════════ */
-    #materiales { background: var(--negro); }
+    #materiales { background: var(--bg-main); }
     .mat-grid {
       display: flex;
       flex-wrap: wrap;
@@ -286,15 +295,16 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      background: var(--negro-card);
-      border: 1px solid rgba(201,168,76,0.25);
+      background: var(--bg-card);
+      border: 1px solid rgba(201,168,76,0.3);
       border-radius: 50px;
       padding: 12px 22px;
       font-size: 0.92rem;
-      color: var(--blanco);
-      transition: border-color 0.2s, background 0.2s;
+      color: var(--texto);
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
     }
-    .mat-chip:hover { border-color: var(--dorado); background: rgba(201,168,76,0.07); }
+    .mat-chip:hover { border-color: var(--dorado); background: rgba(201,168,76,0.05); box-shadow: 0 2px 10px rgba(201,168,76,0.12); }
     .mat-chip .dot {
       width: 10px; height: 10px;
       border-radius: 50%;
@@ -303,9 +313,9 @@
     }
 
     /* ══════════════════════════════════════
-       NOSOTROS (Misión / Visión)
+       NOSOTROS
     ══════════════════════════════════════ */
-    #nosotros { background: var(--negro-medio); }
+    #nosotros { background: var(--bg-white); }
     .nos-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -316,13 +326,14 @@
     }
 
     .nos-visual {
-      background: linear-gradient(135deg, #111 0%, #1e1a0e 100%);
-      border: 1px solid rgba(201,168,76,0.25);
+      background: linear-gradient(135deg, #fdf9f0 0%, #faf3dc 100%);
+      border: 1px solid rgba(201,168,76,0.35);
       border-radius: 20px;
       padding: 48px 36px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.1);
     }
     .nos-visual::before {
       content: '';
@@ -330,11 +341,11 @@
       top: -60px; right: -60px;
       width: 220px; height: 220px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,168,76,0.12), transparent);
+      background: radial-gradient(circle, rgba(201,168,76,0.15), transparent);
     }
     .logo-grande {
       font-size: 1rem;
-      color: var(--gris);
+      color: var(--texto-sec);
       letter-spacing: 5px;
       text-transform: uppercase;
       margin-bottom: 6px;
@@ -350,9 +361,9 @@
     .logo-sas {
       font-size: 0.78rem;
       letter-spacing: 5px;
-      color: var(--gris);
+      color: var(--texto-sec);
       text-transform: uppercase;
-      border-top: 1px solid rgba(201,168,76,0.3);
+      border-top: 1px solid rgba(201,168,76,0.4);
       padding-top: 12px;
       margin-top: 12px;
     }
@@ -363,16 +374,17 @@
       color: var(--dorado);
       line-height: 1;
     }
-    .nos-anos-lbl { font-size: 0.85rem; color: var(--gris); letter-spacing: 1px; }
+    .nos-anos-lbl { font-size: 0.85rem; color: var(--texto-sec); letter-spacing: 1px; }
 
     .mv-stack { display: flex; flex-direction: column; gap: 28px; }
 
     .mv-box {
-      background: var(--negro-card);
-      border: 1px solid rgba(201,168,76,0.18);
+      background: var(--bg-card);
+      border: 1px solid rgba(201,168,76,0.2);
       border-radius: 14px;
       padding: 28px 28px 28px 32px;
       position: relative;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
     }
     .mv-box::before {
       content: '';
@@ -386,11 +398,11 @@
       font-size: 0.75rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--dorado);
+      color: var(--dorado-oscuro);
       font-weight: 700;
       margin-bottom: 12px;
     }
-    .mv-box p { font-size: 0.97rem; color: #bbb; line-height: 1.75; }
+    .mv-box p { font-size: 0.97rem; color: #444; line-height: 1.75; }
 
     .obj-list { display: flex; flex-direction: column; gap: 0; }
     .obj-item {
@@ -398,7 +410,7 @@
       gap: 16px;
       align-items: flex-start;
       padding: 16px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
     .obj-num {
       width: 30px; height: 30px;
@@ -407,17 +419,16 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 0.78rem;
       font-weight: 800;
-      color: var(--negro);
+      color: #fff;
       flex-shrink: 0;
       margin-top: 2px;
     }
-    .obj-item p { font-size: 0.95rem; color: #bbb; line-height: 1.65; }
-    .placeholder { color: #555 !important; font-style: italic; }
+    .obj-item p { font-size: 0.95rem; color: #444; line-height: 1.65; }
 
     /* ══════════════════════════════════════
        POR QUÉ NOSOTROS
     ══════════════════════════════════════ */
-    #porque { background: var(--negro); }
+    #porque { background: var(--bg-main); }
     .porque-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -426,22 +437,23 @@
       margin: 0 auto;
     }
     .pq-card {
-      background: var(--negro-card);
-      border: 1px solid rgba(201,168,76,0.12);
+      background: var(--bg-card);
+      border: 1px solid rgba(201,168,76,0.18);
       border-radius: 14px;
       padding: 32px 24px;
       text-align: center;
-      transition: border-color 0.3s, transform 0.25s;
+      transition: border-color 0.3s, transform 0.25s, box-shadow 0.3s;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
     }
-    .pq-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-4px); }
+    .pq-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-4px); box-shadow: 0 6px 20px rgba(201,168,76,0.12); }
     .pq-icon { font-size: 2.4rem; margin-bottom: 16px; }
-    .pq-card h4 { color: var(--dorado); font-size: 1rem; font-weight: 800; margin-bottom: 10px; }
-    .pq-card p  { color: var(--gris); font-size: 0.9rem; line-height: 1.65; }
+    .pq-card h4 { color: var(--dorado-oscuro); font-size: 1rem; font-weight: 800; margin-bottom: 10px; }
+    .pq-card p  { color: var(--texto-sec); font-size: 0.9rem; line-height: 1.65; }
 
     /* ══════════════════════════════════════
        GALERÍA
     ══════════════════════════════════════ */
-    #galeria { background: var(--negro-medio); }
+    #galeria { background: var(--bg-white); }
 
     .gal-grid {
       display: grid;
@@ -456,8 +468,8 @@
       border-radius: 12px;
       overflow: hidden;
       cursor: pointer;
-      background: var(--negro-card);
-      border: 2px dashed rgba(201,168,76,0.25);
+      background: var(--gris-claro);
+      border: 2px dashed rgba(201,168,76,0.3);
       transition: border-color 0.25s, transform 0.2s;
       aspect-ratio: 4/3;
       display: flex;
@@ -483,7 +495,7 @@
       flex-direction: column;
       align-items: center;
       gap: 8px;
-      color: rgba(201,168,76,0.4);
+      color: rgba(201,168,76,0.5);
       text-align: center;
       padding: 16px;
       pointer-events: none;
@@ -494,7 +506,7 @@
     .gal-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
       opacity: 0;
       transition: opacity 0.3s;
       display: flex;
@@ -503,34 +515,16 @@
     }
     .gal-slot:hover .gal-overlay { opacity: 1; }
     .gal-overlay span {
-      color: var(--blanco);
+      color: #fff;
       font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 1px;
     }
 
-    .gal-remove {
-      position: absolute;
-      top: 8px; right: 8px;
-      width: 26px; height: 26px;
-      background: rgba(0,0,0,0.7);
-      border: 1px solid rgba(201,168,76,0.5);
-      border-radius: 50%;
-      color: var(--dorado);
-      font-size: 0.85rem;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.2s;
-      z-index: 10;
-    }
-    .gal-slot:hover .gal-remove { opacity: 1; }
-
-    /* Barra de edición de galería */
     .gal-editor-bar {
       max-width: 1060px;
       margin: 24px auto 0;
-      background: rgba(201,168,76,0.07);
+      background: rgba(201,168,76,0.06);
       border: 1px solid rgba(201,168,76,0.2);
       border-radius: 12px;
       padding: 18px 24px;
@@ -540,26 +534,12 @@
       flex-wrap: wrap;
     }
     .gal-editor-bar p {
-      color: var(--gris);
+      color: var(--texto-sec);
       font-size: 0.88rem;
       flex: 1;
       min-width: 200px;
     }
-    .gal-editor-bar p strong { color: var(--dorado); }
-    .btn-gal-save {
-      background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
-      color: var(--negro);
-      border: none;
-      padding: 11px 26px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 800;
-      cursor: pointer;
-      font-family: inherit;
-      transition: opacity 0.2s;
-      white-space: nowrap;
-    }
-    .btn-gal-save:hover { opacity: 0.85; }
+    .gal-editor-bar p strong { color: var(--dorado-oscuro); }
 
     @media (max-width: 820px) {
       .gal-grid { grid-template-columns: 1fr 1fr; }
@@ -572,7 +552,7 @@
     /* ══════════════════════════════════════
        CONTACTO
     ══════════════════════════════════════ */
-    #contacto { background: var(--negro); }
+    #contacto { background: var(--bg-main); }
     .contacto-wrap {
       display: grid;
       grid-template-columns: 1fr 1.3fr;
@@ -584,7 +564,7 @@
     .ct-info h3 {
       font-size: 1.6rem;
       font-weight: 900;
-      color: var(--blanco);
+      color: var(--texto);
       margin-bottom: 14px;
     }
     .ct-info .tagline-ct {
@@ -593,7 +573,7 @@
       font-size: 1rem;
       margin-bottom: 24px;
     }
-    .ct-info p { color: var(--gris); line-height: 1.75; font-size: 0.95rem; margin-bottom: 30px; }
+    .ct-info p { color: var(--texto-sec); line-height: 1.75; font-size: 0.95rem; margin-bottom: 30px; }
 
     .ct-dato {
       display: flex;
@@ -603,7 +583,7 @@
     }
     .ct-icon {
       width: 46px; height: 46px;
-      background: rgba(201,168,76,0.12);
+      background: rgba(201,168,76,0.10);
       border: 1px solid rgba(201,168,76,0.3);
       border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
@@ -615,21 +595,22 @@
       font-size: 0.75rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--dorado);
+      color: var(--dorado-oscuro);
       margin-bottom: 3px;
     }
-    .ct-texto span { color: #bbb; font-size: 0.95rem; }
+    .ct-texto span { color: #444; font-size: 0.95rem; }
 
     .ct-form {
-      background: var(--negro-card);
-      border: 1px solid rgba(201,168,76,0.15);
+      background: var(--bg-card);
+      border: 1px solid rgba(201,168,76,0.2);
       border-radius: 18px;
       padding: 40px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     }
     .ct-form h4 {
       font-size: 1.2rem;
       font-weight: 800;
-      color: var(--blanco);
+      color: var(--texto);
       margin-bottom: 28px;
     }
     .fg { margin-bottom: 20px; }
@@ -639,37 +620,37 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--dorado);
+      color: var(--dorado-oscuro);
       margin-bottom: 8px;
     }
     .fg input,
     .fg select,
     .fg textarea {
       width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(201,168,76,0.2);
+      background: #f8f8f8;
+      border: 1px solid rgba(201,168,76,0.25);
       border-radius: 8px;
       padding: 13px 16px;
       font-size: 0.95rem;
       font-family: inherit;
-      color: var(--blanco);
+      color: var(--texto);
       outline: none;
       transition: border-color 0.2s;
     }
     .fg input::placeholder,
-    .fg textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .fg textarea::placeholder { color: rgba(0,0,0,0.3); }
     .fg input:focus,
     .fg select:focus,
-    .fg textarea:focus { border-color: var(--dorado); }
+    .fg textarea:focus { border-color: var(--dorado); background: #fff; }
     .fg textarea { resize: vertical; min-height: 120px; }
-    .fg select option { background: var(--negro-card); color: var(--blanco); }
+    .fg select option { background: #fff; color: var(--texto); }
     .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
     .btn-submit {
       width: 100%;
       padding: 15px;
       background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
-      color: var(--negro);
+      color: #fff;
       border: none;
       border-radius: 8px;
       font-size: 1rem;
@@ -678,6 +659,7 @@
       letter-spacing: 0.5px;
       transition: opacity 0.2s;
       font-family: inherit;
+      box-shadow: 0 4px 14px rgba(201,168,76,0.35);
     }
     .btn-submit:hover { opacity: 0.88; }
 
@@ -685,8 +667,8 @@
        FOOTER
     ══════════════════════════════════════ */
     footer {
-      background: #060606;
-      border-top: 1px solid rgba(201,168,76,0.15);
+      background: #111;
+      border-top: 2px solid rgba(201,168,76,0.3);
       padding: 40px 50px;
       display: flex;
       justify-content: space-between;
@@ -695,10 +677,10 @@
       gap: 20px;
     }
     .footer-brand .fb-name { font-size: 1.3rem; font-weight: 900; color: var(--dorado); }
-    .footer-brand .fb-sub  { font-size: 0.75rem; color: var(--gris); letter-spacing: 2px; }
-    .footer-mid { color: var(--gris); font-size: 0.85rem; text-align: center; }
+    .footer-brand .fb-sub  { font-size: 0.75rem; color: #888; letter-spacing: 2px; }
+    .footer-mid { color: #888; font-size: 0.85rem; text-align: center; }
     .footer-mid a { color: var(--dorado); text-decoration: none; }
-    .footer-right { color: var(--gris); font-size: 0.82rem; text-align: right; }
+    .footer-right { color: #888; font-size: 0.82rem; text-align: right; }
 
     /* ══════════════════════════════════════
        WHATSAPP FLOTANTE
@@ -719,6 +701,103 @@
     .wa:hover { transform: scale(1.1); }
 
     /* ══════════════════════════════════════
+       MODAL COCINAS
+    ══════════════════════════════════════ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.abierto { display: flex; }
+
+    .modal-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 820px;
+      width: 100%;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: var(--gris-claro);
+      border: none;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #444;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: rgba(201,168,76,0.2); color: var(--dorado-oscuro); }
+
+    .modal-box h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--texto);
+      margin-bottom: 6px;
+    }
+    .modal-sub {
+      color: var(--dorado);
+      font-size: 0.9rem;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .modal-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(201,168,76,0.2);
+      transition: transform 0.3s;
+    }
+    .modal-grid img:first-child {
+      grid-column: span 2;
+      height: 260px;
+    }
+    .modal-grid img:hover { transform: scale(1.02); }
+
+    .modal-cta {
+      margin-top: 24px;
+      text-align: center;
+    }
+    .modal-cta a {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+      color: #fff;
+      padding: 13px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(201,168,76,0.35);
+      transition: opacity 0.2s;
+    }
+    .modal-cta a:hover { opacity: 0.88; }
+
+    @media (max-width: 560px) {
+      .modal-grid { grid-template-columns: 1fr; }
+      .modal-grid img:first-child { grid-column: span 1; height: 200px; }
+      .modal-box { padding: 28px 20px; }
+    }
+
+    /* ══════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════ */
     @media (max-width: 820px) {
@@ -728,8 +807,6 @@
       section { padding: 70px 24px; }
       .nos-wrap { grid-template-columns: 1fr; gap: 40px; }
       .contacto-wrap { grid-template-columns: 1fr; }
-      .galeria-grid { grid-template-columns: 1fr 1fr; }
-      .gal-item:first-child { grid-row: span 1; }
       .frow { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; }
       .footer-right { text-align: center; }
@@ -741,6 +818,23 @@
   </style>
 </head>
 <body>
+
+<!-- ══ MODAL COCINAS ══ -->
+<div id="modalCocinas" class="modal-overlay" onclick="cerrarModal()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="cerrarModal()">✕</button>
+    <h3>🍳 Construcción de Cocinas</h3>
+    <p class="modal-sub">Diseñamos y construimos cocinas modernas con acabados de alta gama</p>
+    <div class="modal-grid">
+      <img src="Foto6.jpg" alt="Cubierta de Cocina" onerror="this.style.display='none'"/>
+      <img src="Foto11.jpg" alt="Cocina Granito Gris" onerror="this.style.display='none'"/>
+      <img src="Foto3.jpg" alt="Mesón Blanco" onerror="this.style.display='none'"/>
+    </div>
+    <div class="modal-cta">
+      <a href="#contacto" onclick="cerrarModal()">Solicitar cotización de cocina</a>
+    </div>
+  </div>
+</div>
 
 <!-- ══ NAVBAR ══ -->
 <nav>
@@ -788,10 +882,11 @@
     <p class="s-sub">Ofrecemos soluciones integrales de construcción y remodelación, combinando diseño, precisión y materiales premium.</p>
   </div>
   <div class="servicios-grid">
-    <div class="serv-card">
+    <div class="serv-card clickable" onclick="document.getElementById('modalCocinas').classList.add('abierto')">
       <span class="serv-icon">🍳</span>
       <h3>Construcción de cocinas</h3>
       <p>Diseñamos y construimos cocinas modernas y funcionales con acabados en granito, mármol, cuarzo o sinterizado, adaptadas a tu espacio.</p>
+      <p class="serv-hint">📸 Ver proyectos →</p>
     </div>
     <div class="serv-card">
       <span class="serv-icon">🪨</span>
@@ -845,7 +940,6 @@
 <!-- ══ NOSOTROS ══ -->
 <section id="nosotros">
   <div class="nos-wrap">
-    <!-- Visual izquierda -->
     <div>
       <div class="nos-visual">
         <div class="logo-grande">Acabados</div>
@@ -853,10 +947,9 @@
         <div class="logo-sas">MA SAS</div>
         <div class="nos-anos">10</div>
         <div class="nos-anos-lbl">años de trayectoria</div>
-        <p style="color:var(--gris);font-size:0.82rem;margin-top:12px;">Constituida el 30 de noviembre de 2015</p>
+        <p style="color:var(--texto-sec);font-size:0.82rem;margin-top:12px;">Constituida el 30 de noviembre de 2015</p>
       </div>
     </div>
-    <!-- Contenido derecha -->
     <div>
       <div class="s-tag">Quiénes somos</div>
       <h2 class="s-title">Nuestra empresa</h2>
@@ -933,80 +1026,77 @@
     <p class="s-sub">Cada proyecto es una muestra de nuestro compromiso con la calidad y el diseño.</p>
   </div>
 
-  <!-- Grid: referencia fotos por nombre en la misma carpeta -->
   <div class="gal-grid" id="galGrid">
     <div class="gal-slot featured">
       <img src="Foto1.jpg" alt="Mesón Sinterizado Negro"
            onerror="this.parentElement.classList.remove('has-img');this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">foto1.jpg</span></div>
+      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">Foto1.jpg</span></div>
       <div class="gal-overlay"><span>Mesón Sinterizado Negro</span></div>
     </div>
     <div class="gal-slot">
       <img src="Foto2.jpg" alt="Lavamanos Mármol"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">foto2.jpg</span></div>
+      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">Foto2.jpg</span></div>
       <div class="gal-overlay"><span>Lavamanos Mármol</span></div>
     </div>
     <div class="gal-slot">
       <img src="Foto3.jpg" alt="Mesón Blanco"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">foto3.jpg</span></div>
+      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">Foto3.jpg</span></div>
       <div class="gal-overlay"><span>Mesón Blanco</span></div>
     </div>
     <div class="gal-slot">
       <img src="Foto4.jpg" alt="Escaleras Exteriores"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">foto4.jpg</span></div>
+      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">Foto4.jpg</span></div>
       <div class="gal-overlay"><span>Escaleras Exteriores</span></div>
     </div>
     <div class="gal-slot">
       <img src="Foto5.jpg" alt="Escalera Interior"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">foto5.jpg</span></div>
+      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">Foto5.jpg</span></div>
       <div class="gal-overlay"><span>Escalera Interior</span></div>
     </div>
     <div class="gal-slot">
       <img src="Foto6.jpg" alt="Cubierta Cocina"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">foto6.jpg</span></div>
+      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">Foto6.jpg</span></div>
       <div class="gal-overlay"><span>Cubierta Cocina</span></div>
     </div>
-
     <div class="gal-slot">
       <img src="Foto8.jpg" alt="Jardinera & Banca"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">foto8.jpg</span></div>
+      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">Foto8.jpg</span></div>
       <div class="gal-overlay"><span>Jardinera & Banca</span></div>
     </div>
     <div class="gal-slot">
       <img src="Foto9.jpg" alt="Recepción Gris"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">foto9.jpg</span></div>
+      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">Foto9.jpg</span></div>
       <div class="gal-overlay"><span>Recepción Gris</span></div>
     </div>
     <div class="gal-slot">
       <img src="Foto10.jpg" alt="Mesón Madera"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">foto10.jpg</span></div>
+      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">Foto10.jpg</span></div>
       <div class="gal-overlay"><span>Mesón Madera</span></div>
     </div>
     <div class="gal-slot">
       <img src="Foto11.jpg" alt="Cocina Granito Gris"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">foto11.jpg</span></div>
+      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">Foto11.jpg</span></div>
       <div class="gal-overlay"><span>Cocina Granito Gris</span></div>
     </div>
     <div class="gal-slot">
       <img src="Foto12.jpg" alt="Mesón Granito"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">foto12.jpg</span></div>
+      <div class="gal-placeholder" style="display:none"><span class="ph-icon">📷</span><span class="ph-lbl">Foto12.jpg</span></div>
       <div class="gal-overlay"><span>Mesón Granito</span></div>
     </div>
   </div>
 
-  <!-- Instrucciones -->
   <div class="gal-editor-bar">
-    <p>📁 <strong>Para agregar fotos:</strong> renombra tus imágenes como <strong>foto1.jpg, foto2.jpg ... foto12.jpg</strong> y ponlas en la misma carpeta que este archivo HTML. Se cargan automáticamente.</p>
+    <p>📁 <strong>Para agregar fotos:</strong> renombra tus imágenes como <strong>Foto1.jpg, Foto2.jpg...</strong> y ponlas en la misma carpeta que este archivo. Se cargan automáticamente.</p>
   </div>
 </section>
 
@@ -1028,14 +1118,14 @@
         <div class="ct-icon">📞</div>
         <div class="ct-texto">
           <strong>WhatsApp principal</strong>
-          <span>313 302 5640</span>
+          <span>311 440 1062</span>
         </div>
       </div>
       <div class="ct-dato">
         <div class="ct-icon">📱</div>
         <div class="ct-texto">
           <strong>Líneas alternas</strong>
-          <span>311 440 1062 · 320 425 8890</span>
+          <span>313 302 5640 · 320 425 8890</span>
         </div>
       </div>
       <div class="ct-dato">
@@ -1045,7 +1135,6 @@
           <span>acabadoslozanoma@hotmail.com</span>
         </div>
       </div>
-
     </div>
 
     <div class="ct-form">
@@ -1104,7 +1193,16 @@
 </footer>
 
 <!-- ══ WHATSAPP FLOTANTE ══ -->
-<a href="https://wa.me/573133025640" target="_blank" class="wa" title="Escríbenos por WhatsApp">💬</a>
+<a href="https://wa.me/573114401062" target="_blank" class="wa" title="Escríbenos por WhatsApp">💬</a>
+
+<script>
+  function cerrarModal() {
+    document.getElementById('modalCocinas').classList.remove('abierto');
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') cerrarModal();
+  });
+</script>
 
 </body>
 </html>
